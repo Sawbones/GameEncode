@@ -1,0 +1,47 @@
+<html>
+<head>
+	<title>Game Encode</title>
+	
+	<style>
+		html, body
+		{
+			margin:0px; padding:0px;
+		}
+		input
+		{
+			position:absolute;
+			top:0px;
+			left:0px;
+		}
+	</style>
+</head>
+
+<body>
+	<canvas id="game"></canvas>
+</body>
+<script src="/js/jquery.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/login.js"></script>
+<script src="/js/Forest.js"></script>
+<script src="/js/game.js"></script>
+<script>
+var game = new Game('game');
+
+var time = new Date().getTime();
+var oldTime = time;
+var delta = 0;
+
+var canvas = document.getElementById('game');
+var c = canvas.getContext('2d');
+
+setInterval(function(){
+	time = new Date().getTime();
+	delta = time - oldTime;
+	
+	game.update();
+	game.render();
+	
+	oldTime = time;
+}, 16);
+</script>
+</html>
