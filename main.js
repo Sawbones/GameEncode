@@ -3,6 +3,8 @@ var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
 
+var database = require('./database');
+
 app.use(express.static(__dirname));
 
 app.get('/', function(req, res) {
@@ -30,4 +32,4 @@ function credentials(login)
 
 server.listen(8887);
 
-//database.getMap('intro');
+database.getMap('intro');
