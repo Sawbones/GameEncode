@@ -24,8 +24,10 @@ function credentials(login)
 	var username = login.username;
 	var password = login.password;
 	
-	database.getUser(username, password);
+	//database.getUser(username, password);
 }
 
 
 server.listen(8887);
+
+//database.getMap('intro');

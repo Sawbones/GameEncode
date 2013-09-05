@@ -19,4 +19,15 @@ module.exports = function()
 			console.log(rows);
 		}
 	}
+
+	this.getMap = function(map_name)
+	{
+		conn.query(
+			"SELECT * FROM maps WHERE name='" + map_name + "'", handleMap
+		);
+		function handleMap(error, rows, fields)
+		{
+			console.log(rows);
+		}
+	}
 }
